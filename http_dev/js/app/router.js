@@ -8,17 +8,13 @@ define([
 	'underscore',	// UnderscoreJS Library
 	'backbone',		// BackboneJS MVC
 	// Views
-	'app/views/home/main',
-	'app/views/sandbox/main'
-], function($, _, Backbone, mainView, sandboxView){
+	'app/views/home/main'
+], function($, _, Backbone, mainView){
 	var AppRouter = Backbone.Router.extend({
 		routes:{
 			// Define some URL routes
 			'': 'showHome',
 			'!/': 'showHome',
-			
-			// Sandbox
-			'!/sandbox/*name': 'sandboxAction',
 			
 			// Default
 			'*actions': 'defaultAction'
@@ -27,15 +23,7 @@ define([
 			// root route
 			this.navigate('!/');
 			// render home page
-			mainView.render();
-		},
-		sandboxAction:function(name){
-			// Sandbox only available in test mode
-			if( log("Sandbox mode!", 'test') ){
-				sandboxView.render(name);
-			} else {
-				this.defaultAction();
-			}
+			mainView.page();
 		},
 		defaultAction:function(actions){
 			// log route

@@ -50,11 +50,37 @@
 	<meta http-equiv="cleartype" content="on">
 	
 	<!-- LESS converted to css and minified via build script -->
-	<link rel="stylesheet/less" href="css/core.less">
+	<!-- link rel="stylesheet/less" href="css/core.less" -->
 	<!-- less script -->
 	<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/1.3.0/less-1.3.0.min.js"></script>
 	<!-- end less script -->
 	<!-- end LESS -->
+
+	<link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+	<link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="http://zocial.smcllns.com/css/zocial.css" rel="stylesheet">
+	<style>
+		/* =Image Replacement= */
+		.texthidden{
+			border:0;
+			font:0/0 a;
+			text-shadow:none;
+			color:transparent;
+			background-color:transparent;
+		}
+
+		/* =Loading Icon= */
+		.loading{
+			display:block;
+			width:24px;
+			height:24px;
+			margin:30px auto;
+			background-image:url('img/loadinfo.net-24x24.gif');
+			background-position:0 0;
+			background-repeat:no-repeat;
+			.texthidden;
+		}
+	</style>
 	
 	<!-- Load Google Fonts cache -->
 	<link href="//fonts.googleapis.com/css?family=Pompiere|Passion+One|Boogaloo|Raleway:100" rel="stylesheet" type="text/css">
@@ -70,6 +96,9 @@
 </head>
 
 <body>
+
+	<!-- Facebook Authentication -->
+	<div id="fb-root"></div>
 	
 	<!-- Prompt IE 6 users to install Chrome Frame. Remove this if you support IE 6.
 		 chromium.org/developers/how-tos/chrome-frame-getting-started -->
@@ -89,12 +118,17 @@
 		
 	</aside>
 	<!-- Page Body -->
-	<article id="body" role="main">
-		<section id="messages">
+	<article id="body" class="container-fluid" role="main">
+		<section id="messages" class="row-fluid">
 			
 		</section>
-		<section id="content">
-			<a href="#" title="Why am I seeing this?" class="loading">Loading Content...</a>
+		<section id="content" class="row-fluid">
+			<a href="#" title="Why am I seeing this?" class="loading texthidden">Loading Content...</a>
+			<div id="fbLoginModal" class="modal hide fade">
+				<div class="modal-body">
+					<a id="fbLoginBtn" class="zocial facebook input-block-level" href="#"><span>Sign in with Facebook</span></a>
+				</div>
+			</div>
 		</section>
 	</article>
 	<!-- Page Foot -->
