@@ -248,39 +248,39 @@
 
 	AMD(['jquery', 'tb'], function($){
 		SAS.init($);
-	});
 
-	AMD(['fb'], function(fb){
-		// initiate fbauth settings
-		FBAUTH.init(fb);
+		AMD(['jquery', 'fb', 'tb'], function($, fb){
+			// initiate fbauth settings
+			FBAUTH.init(fb);
 
-		// request status
-		FBAUTH.status(fb, function(response){
-			if (response.status === 'connected') {
-				// connected
-				FBAUTH.callbacks.existing(response);
-			} else {
-				// open modal
-				FBAUTH.popover.modal({
-					keyboard: false,
-					backdrop: 'static'
+			// request status
+			FBAUTH.status(fb, function(response){
+				if (response.status === 'connected') {
+					// connected
+					FBAUTH.callbacks.existing(response);
+				} else {
+					// open modal
+					FBAUTH.popover.modal({
+						keyboard: false,
+						backdrop: 'static'
+					});
+
+					// bind to click for log on
+					FBAUTH.trigger.on("click", function(e){
+						// not authorised
+						FBAUTH.login(fb);
+
+						// prevent default behaviour
+						e.preventDefault();
+					});
+				}
+			});
+
+			FBAUTH.popover.on("hidden", function(){
+				// start application
+				AMD(['index'], function(index){
+					APP.init(index);
 				});
-
-				// bind to click for log on
-				FBAUTH.trigger.on("click", function(e){
-					// not authorised
-					FBAUTH.login(fb);
-
-					// prevent default behaviour
-					e.preventDefault();
-				});
-			}
-		});
-
-		FBAUTH.popover.on("hidden", function(){
-			// start application
-			AMD(['index'], function(index){
-				APP.init(index);
 			});
 		});
 	});
