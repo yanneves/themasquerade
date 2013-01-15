@@ -51,6 +51,7 @@
 	
 	<!-- LESS converted to css and minified via build script -->
 	<link rel="stylesheet/less" href="css/less/bootstrap.less">
+	<link rel="stylesheet/less" href="css/custom.less">
 	<!-- less script -->
 	<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/1.3.0/less-1.3.0.min.js"></script>
 	<!-- end less script -->
@@ -59,27 +60,6 @@
 	<!-- link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet" -->
 	<link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
 	<link href="http://zocial.smcllns.com/css/zocial.css" rel="stylesheet">
-	<style>
-		/* =Image Replacement= */
-		.texthidden{
-			border:0;
-			font:0/0 a;
-			text-shadow:none;
-			color:transparent;
-			background-color:transparent;
-		}
-
-		/* =Loading Icon= */
-		.loading{
-			display:block;
-			width:40px;
-			height:40px;
-			margin:30px auto;
-			background-image:url('img/loadingicon-36x36.gif');
-			background-position:2px 2px;
-			background-repeat:no-repeat;
-		}
-	</style>
 	
 	<!-- Load Google Fonts cache -->
 	<link href="//fonts.googleapis.com/css?family=Pompiere|Passion+One|Boogaloo|Raleway:100" rel="stylesheet" type="text/css">
@@ -104,28 +84,26 @@
 	<!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
 	
 	
-	
+
 	<!-- Page Head -->
 	<header id="head">
+		<a href="/" class="logo">Masquerade Ball</a>
 		<!-- Primary Navigation -->
-		<nav role="navigation">
+		<!-- <nav role="navigation">
 			
-		</nav>
+		</nav> -->
 	</header>
-	<!-- Complementary Elements -->
-	<aside id="complement" role="complementary">
-		<p>Hello World!</p>
-	</aside>
 	<!-- Page Body -->
 	<article id="body" class="container" role="main">
 		<section id="messages" class="row-fluid">
 			
 		</section>
 		<section id="content" class="row-fluid">
-			<a href="#" title="Why am I seeing this?" class="loading texthidden">Loading Content...</a>
+			<a href="#" title="Why am I seeing this?" class="loading">Loading Content...</a>
 			<div id="fbLoginModal" class="modal hide fade">
 				<div class="modal-body">
 					<a id="fbLoginBtn" class="zocial facebook input-block-level" href="#"><span>Sign in with Facebook</span></a>
+					<small class="alt-login pull-right">...or, if you don't have Facebook, please <a href="mailto:events@aaunel.com" title="RSVP Email">email</a> your RSVP&nbsp;</small>
 				</div>
 			</div>
 		</section>
@@ -134,6 +112,11 @@
 	<footer id="foot">
 		
 	</footer>
+
+	<i class="fold fold-top-left"></i>
+	<i class="fold fold-top-right"></i>
+	<i class="fold fold-btm-left"></i>
+	<i class="fold fold-btm-right"></i>
 	
 	
 
