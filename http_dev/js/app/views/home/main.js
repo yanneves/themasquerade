@@ -17,17 +17,41 @@ define([
 
 		el: "#content",
 
+		_attend: function(e){
+			$(e.target).button("loading");
+			fb_event.rsvp(fb_user.id, "attending");
+
+			if(e && e.preventDefault){
+				e.preventDefault();
+			}
+		},
+		_decline: function(e){
+			$(e.target).button("loading");
+			fb_event.rsvp(fb_user.id, "declined");
+
+			if(e && e.preventDefault){
+				e.preventDefault();
+			}
+		},
+
+		events: {
+			"click #rsvpAttend": "_attend",
+			"click #rsvpDecline": "_decline"
+		},
+
 		render: function(){
 			var data = {
 				user: fb_user.toJSON(),
 				event: fb_event.toJSON()
-			}
+			};
 
 			this.$el.html( this.template(data) );
+
+			this.$("#rsvpHelp").popover();
 		},
 
 		page: function(){
-			fb_event.on("change:invited", function(event){
+			fb_event.on("change:invite_status", function(event){
 				this.render();
 			}, this);
 			

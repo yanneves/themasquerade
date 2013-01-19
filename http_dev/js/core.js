@@ -108,6 +108,7 @@
 ----------------------------------------------- */
 
 	AMD.config({
+		urlArgs: "vers=2",
 		paths: {
 			// require plug-ins
 			text:'app/libs/require/text',
@@ -206,7 +207,7 @@
 				} else {
 					FBAUTH.callbacks.not_authorized();
 				}
-			});
+			}, {scope:'user_events, rsvp_event'});
 		},
 		status: function(fb, callback){
 			fb.getLoginStatus( callback );
@@ -246,7 +247,7 @@
 /* =Initiation=
 ----------------------------------------------- */
 
-	AMD(['jquery', 'tb'], function($){
+	AMD(['jquery'], function($){
 		SAS.init($);
 
 		AMD(['jquery', 'fb', 'tb'], function($, fb){
